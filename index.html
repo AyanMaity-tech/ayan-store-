@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Luxury Store</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* 🌌 BACKGROUND ANIMATION */
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+  background: radial-gradient(circle at top,#0a0a0a,#000);
+  color:white;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  top:-200px;
+  left:50%;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#d4af37,transparent);
+  filter:blur(150px);
+  transform:translateX(-50%);
+  opacity:0.15;
+  pointer-events: none; /* 🔥 IMPORTANT */
+}
+
+/* 🔥 HERO */
+.hero{
+  text-align:center;
+  padding:100px 20px 50px;
+}
+
+.hero h1{
+  font-size:48px;
+  background:linear-gradient(45deg,#d4af37,#fff);
+  -webkit-background-clip:text;
+  color:transparent;
+  animation:fade 2s ease;
+}
+
+.hero p{
+  color:#aaa;
+  margin-top:10px;
+  animation:fade 3s ease;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;}
+}
+
+/* 🔍 SEARCH */
+.search-box{
+  display:flex;
+  justify-content:center;
+  margin:30px 0;
+}
+
+#search{
+  width:320px;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:#111;
+  color:white;
+  box-shadow:0 0 10px rgba(255,255,255,0.05);
+}
+
+/* 🎯 FILTER */
+.chips{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.chips button{
+  margin:5px;
+  padding:10px 18px;
+  border:none;
+  border-radius:30px;
+  background:#111;
+  color:#777;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.chips button:hover{
+  color:white;
+  box-shadow:0 0 15px #d4af37;
+}
+
+/* 🛒 GRID */
+#products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  padding:40px;
+}
+
+/* 💎 CARD */
+.card{
+  background:rgba(255,255,255,0.05);
+  border-radius:20px;
+  padding:15px;
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.1);
+  transition:0.5s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* ✨ LIGHT SWEEP EFFECT */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.2),transparent);
+  transition:0.6s;
+}
+
+.card:hover::before{
+  left:100%;
+}
+
+.card:hover{
+  transform:translateY(-12px) scale(1.02);
+  box-shadow:0 0 40px rgba(212,175,55,0.3);
+}
+
+/* IMAGE */
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:12px;
+}
+
+/* TITLE */
+.card h3{
+  margin:12px 0;
+}
+
+/* BUTTON */
+.card button{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(45deg,#d4af37,#fff);
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card button:hover{
+  box-shadow:0 0 20px #d4af37;
+}
+
+/* REVIEW */
+.review-box{
+  margin-top:10px;
+  font-size:13px;
+}
+
+.pros{color:#4ade80;}
+.cons{color:#f87171;}
+.verdict{color:#d4af37;}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔥 HERO -->
+<div class="hero">
+  <h1>Luxury Picks</h1>
+  <p>Curated premium products that feel elite</p>
+</div>
+
+<!-- 🔍 SEARCH -->
+<div class="search-box">
+  <input id="search" placeholder="Search premium products...">
+</div>
+
+<!-- 🎯 FILTER -->
+<div class="chips">
+  <button onclick="filterCategory('all',this)">All</button>
+  <button onclick="filterCategory('tech',this)">Tech</button>
+  <button onclick="filterCategory('study',this)">Study</button>
+</div>
+
+<!-- 🛒 PRODUCTS -->
+<div id="products"></div>
+
+<script type="module" src="main.js"></script>
+
+</body>
+</html>
