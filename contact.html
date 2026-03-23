@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact - Ayan Store</title>
+
+<meta name="description" content="Contact Ayan Store for premium support and business inquiries.">
+
+<!-- PREMIUM FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* BASE */
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* GOLD GLOW */
+body::before{
+  content:"";
+  position:fixed;
+  top:-250px;
+  left:50%;
+  width:800px;
+  height:800px;
+  background:radial-gradient(circle,#d4af37,transparent);
+  filter:blur(180px);
+  transform:translateX(-50%);
+  opacity:0.12;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+/* LEFT TEXT */
+.left h1{
+  font-family:'Playfair Display',serif;
+  font-size:56px;
+  background:linear-gradient(45deg,#d4af37,#fff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.left p{
+  color:#aaa;
+  margin-top:15px;
+  line-height:1.8;
+}
+
+/* CONTACT INFO */
+.info{
+  margin-top:30px;
+}
+
+.info div{
+  margin-bottom:10px;
+  color:#bbb;
+}
+
+/* FORM CARD */
+.form{
+  background:rgba(255,255,255,0.05);
+  padding:35px;
+  border-radius:25px;
+  backdrop-filter:blur(30px);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 0 60px rgba(212,175,55,0.15);
+}
+
+/* INPUT */
+input, textarea{
+  width:100%;
+  margin-top:15px;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:#111;
+  color:white;
+  font-size:14px;
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  border:none;
+  border-radius:14px;
+  background:linear-gradient(45deg,#d4af37,#fff);
+  color:black;
+  font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  box-shadow:0 0 25px #d4af37;
+  transform:translateY(-2px);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .container{
+    grid-template-columns:1fr;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- LEFT SIDE -->
+<div class="left">
+  <h1>Let’s Talk</h1>
+  <p>
+  Have a question, idea, or business inquiry?  
+  We’d love to hear from you. Reach out and we’ll respond quickly.
+  </p>
+
+  <div class="info">
+    <div>📧contact.crazyayanofficial@gmail.com</div>
+    <div>⏱ Response within 24 hours</div>
+    <div>🌐 Premium Support Experience</div>
+  </div>
+</div>
+
+<!-- RIGHT FORM -->
+<div class="form">
+
+<input id="name" placeholder="Your Name">
+<input id="email" placeholder="Your Email">
+<textarea id="msg" rows="5" placeholder="Your Message"></textarea>
+
+<button onclick="sendMail()">Send Message 🚀</button>
+
+</div>
+
+</div>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("majzjCnTV3LKjvn-0");
+})();
+
+function sendMail(){
+  let params={
+    from_name:document.getElementById("name").value,
+    email:document.getElementById("email").value,
+    message:document.getElementById("msg").value
+  };
+
+  emailjs.send("service_z4y37kx","template_pgmsdwl",params)
+  .then(()=>{
+    alert("Message Sent Successfully 🚀");
+  })
+  .catch(()=>{
+    alert("Failed ❌");
+  });
+}
+</script>
+
+</body>
+</html>
