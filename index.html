@@ -29,7 +29,7 @@ body::before{
   filter:blur(150px);
   transform:translateX(-50%);
   opacity:0.15;
-  pointer-events: none; /* 🔥 IMPORTANT */
+  pointer-events: none;
 }
 
 /* 🔥 HERO */
@@ -116,7 +116,6 @@ body::before{
   overflow:hidden;
 }
 
-/* ✨ LIGHT SWEEP EFFECT */
 .card::before{
   content:"";
   position:absolute;
@@ -137,7 +136,6 @@ body::before{
   box-shadow:0 0 40px rgba(212,175,55,0.3);
 }
 
-/* IMAGE */
 .card img{
   width:100%;
   height:200px;
@@ -145,12 +143,10 @@ body::before{
   border-radius:12px;
 }
 
-/* TITLE */
 .card h3{
   margin:12px 0;
 }
 
-/* BUTTON */
 .card button{
   width:100%;
   margin-top:12px;
@@ -168,7 +164,6 @@ body::before{
   box-shadow:0 0 20px #d4af37;
 }
 
-/* REVIEW */
 .review-box{
   margin-top:10px;
   font-size:13px;
@@ -178,34 +173,66 @@ body::before{
 .cons{color:#f87171;}
 .verdict{color:#d4af37;}
 
+/* 💎 PREMIUM FOOTER NAV */
+.footer-nav{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:50px;
+  padding:10px 20px;
+  display:flex;
+  gap:20px;
+  box-shadow:0 0 25px rgba(212,175,55,0.2);
+  z-index:999;
+}
+
+.footer-nav a{
+  text-decoration:none;
+  color:#aaa;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.footer-nav a:hover{
+  color:#d4af37;
+  text-shadow:0 0 10px #d4af37;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<!-- 🔥 HERO -->
 <div class="hero">
   <h1>Luxury Picks</h1>
   <p>Curated premium products that feel elite</p>
 </div>
 
-<!-- 🔍 SEARCH -->
 <div class="search-box">
   <input id="search" placeholder="Search premium products...">
 </div>
 
-<!-- 🎯 FILTER -->
 <div class="chips">
   <button onclick="filterCategory('all',this)">All</button>
   <button onclick="filterCategory('tech',this)">Tech</button>
   <button onclick="filterCategory('study',this)">Study</button>
 </div>
 
-<!-- 🛒 PRODUCTS -->
 <div id="products"></div>
+
+<!-- 💎 FOOTER NAV -->
+<div class="footer-nav">
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="privacy.html">Privacy</a>
+</div>
 
 <script type="module" src="main.js"></script>
 
 </body>
-</html>
+  </html>
